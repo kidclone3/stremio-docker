@@ -1,6 +1,7 @@
 services:
   stremio:
-    image: tsaridas/stremio-docker:latest
+    build: .
+    image: stremio-docker:local
     restart: unless-stopped
     environment:
       NO_CORS: 1
@@ -8,5 +9,7 @@ services:
       #IPADDRESS: 192.168.1.10 # Setup your ip address here
     ports:
       - "8080:8080"
+      - "11470:11470"
+      - "12470:12470"
     volumes:
       - "./stremio-data:/root/.stremio-server"
